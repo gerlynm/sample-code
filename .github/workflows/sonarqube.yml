@@ -19,7 +19,7 @@ jobs:
     - name: sonarqube scan
       uses: SonarSource/sonarqube-scan-action@master
       env:
-        SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
-        SONAR_HOST_URL: ${{ secrets.SONARQUBE_ENDPOINT }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
       with:
         args: "-Dsonar.projectKey=jerrii \\ -Dsonar.projectName=jerrii \\ -Dsonar.qualitygate.wait=true \\ -Dsonar.sources=. \n"
