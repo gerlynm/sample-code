@@ -19,7 +19,7 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       with:
         args: 
-          -Dsonar.organisation=jerrii 
+          -Dsonar.organization=jerrii 
           -Dsonar.projectKey=jerrii_jerrii   
 
   build:
