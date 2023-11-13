@@ -18,11 +18,10 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       with:
-        args: > 
-          -Dsonar.organization=jerrii 
-          -Dsonar.projectKey=jerrii_jerrii   
-
+        args: >
+          -Dsonar.organization=jerrii  -Dsonar.projectKey=jerrii_jerrii    #magic___^_^___line
   build:
+    needs: scan
     runs-on: ubuntu-latest
     steps:
     - name: checkout source code
