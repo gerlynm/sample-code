@@ -23,6 +23,6 @@ jobs:
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
       with:
         args: >
-          -Dsonar.projectKey=jerrii  
+          -Dsonar.projectKey=jerrii_jerrii  
           -Dsonar.projectName=jerrii
           -Dsonar.qualitygate.wait=true 
