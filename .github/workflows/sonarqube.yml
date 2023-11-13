@@ -18,7 +18,9 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       with:
-        args: "-Dsonar.projectKey=jerrii_jerrii   -Dsonar.projectName=jerrii -Dsonar.qualitygate.wait=true \n"
+        args: 
+          -Dsonar.organisation=jerrii 
+          -Dsonar.projectKey=jerrii_jerrii   
 
   build:
     runs-on: ubuntu-latest
