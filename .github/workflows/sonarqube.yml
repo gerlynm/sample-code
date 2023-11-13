@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  CodeQuality:
+  build:
     runs-on: ubuntu-latest
     steps:
     - name: checkout source code
@@ -16,6 +16,9 @@ jobs:
         node-version: 20
     - name: install dependencies
       run: npm install
+  scan:
+    runs-on: ubuntu-latest
+    steps:
     - name: sonarqube scan
       uses: SonarSource/sonarqube-scan-action@master
       env:
