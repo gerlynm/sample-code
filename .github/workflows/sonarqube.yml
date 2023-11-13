@@ -19,7 +19,7 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       with:
         args: >
-          -Dsonar.organization=jerrii  -Dsonar.projectKey=jerrii_jerrii    #magic___^_^___line
+          -Dsonar.organization=jerrii  -Dsonar.projectKey=jerrii_jerrii  
   build:
     needs: scan
     runs-on: ubuntu-latest
