@@ -1,0 +1,25 @@
+name: Dev
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  CodeQuality:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout source code
+      uses: actions/checkout@master
+    - name: setup node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 20
+    - name: install dependencies
+      run: npm install
+    - name: sonarqube scan
+      uses: SonarSource/sonarqube-scan-action@master
+      env:
+        SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
+        SONAR_HOST_URL: ${{ secrets.SONARQUBE_ENDPOINT }}
+      with:
+        args: "-Dsonar.projectKey=jerrii \\ -Dsonar.projectName=jerrii \\ -Dsonar.qualitygate.wait=true \\ -Dsonar.sources=. \n"
