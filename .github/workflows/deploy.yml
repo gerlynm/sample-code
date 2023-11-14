@@ -22,10 +22,10 @@ jobs:
     - name: sonarqube scan
       uses: sonarsource/sonarcloud-github-action@master
       env:
-        GITHUB_TOKEN: secrets.GIT_TOKEN
-        SONAR_TOKEN:  secrets.SONAR_TOKEN 
+        GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       with:
-        args: "-Dsonar.organization=jerrii   -Dsonar.projectKey=jerrii_jerrii  \n"
+        args: "-Dsonar.organization=jerrii  -Dsonar.projectKey=jerrii_jerrii   \n"
   build:
     needs: scan
     runs-on: ubuntu-latest
