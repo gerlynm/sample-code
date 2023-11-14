@@ -31,7 +31,7 @@ jobs:
         GITHUB_TOKEN: ${{ env.GIT_TOKEN }}
         SONAR_TOKEN: ${{ env.SONAR_TOKEN }}
       with:
-        args: "-Dsonar.organization=$SONAR_ORG  -Dsonar.projectKey=$SONAR_KEY   \n"
+        args: "-Dsonar.organization= ${{ env.SONAR_ORG }}   -Dsonar.projectKey= ${{ env.SONAR_KEY }}  \n"
   build:
     needs: scan
     runs-on: ubuntu-latest
