@@ -34,14 +34,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: checkout source code
-      uses: actions/checkout@master
+      uses: actions/checkout@v4
 
-    - name: configure aws credentials
-      uses: aws-actions/configure-aws-credentials@v1.7.0
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v4
       with:
-        aws-region: ${{ env.AWS_REGION }}
         role-to-assume: arn:aws:iam::837824135029:role/githubactions
-        role-session-name: GitHub_to_AWS_via_FederatedOIDC
+        aws-region: us-east-1
+
     - name: Sts GetCallerIdentity
       run: |
         aws sts get-caller-identity
