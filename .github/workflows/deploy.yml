@@ -65,7 +65,7 @@ jobs:
       if: failure()
       uses: cinotify/github-action@main
       with:
-        to: 'martingerlyn@gmail.com'
+        to: 'gerlyn.m@cybersapient.io'
         subject: 'building main'
         body: 'This is a notification from GitHub actions.'
         #attachment: 'artifacts.zip'
