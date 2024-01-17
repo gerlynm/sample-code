@@ -65,7 +65,7 @@ jobs:
       if: failure()
       uses: dawidd6/action-send-mail@v3
       with:
-        connection_url: email-smtp.us-east-1.amazonaws.com
+        #connection_url: email-smtp.us-east-1.amazonaws.com
         server_address: smtp.gmail.com
         server_port: 465
         username: ${{ secrets.EMAIL_USERNAME }}
@@ -74,4 +74,5 @@ jobs:
         body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
         to: martingerlyn@gmail.com,gerlyn7777@gmail.com
         from: devops@cybersapient.io
+        secure: true
 
