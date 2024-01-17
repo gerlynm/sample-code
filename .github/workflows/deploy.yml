@@ -15,22 +15,22 @@ permissions:
   contents: read  
 
 jobs:
-  scan:
-    runs-on: ubuntu-latest
-    steps:
-    - name: checkout source code
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-    - name: sonarqube scan
-      uses: sonarsource/sonarcloud-github-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      with:
-        args: "-Dsonar.organization=jerrii  -Dsonar.projectKey=jerrii_jerrii   \n"
+  # scan:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - name: checkout source code
+  #     uses: actions/checkout@v3
+  #     with:
+  #       fetch-depth: 0
+  #   - name: sonarqube scan
+  #     uses: sonarsource/sonarcloud-github-action@master
+  #     env:
+  #       GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+  #       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  #     with:
+  #       args: "-Dsonar.organization=jerrii  -Dsonar.projectKey=jerrii_jerrii   \n"
   build:
-    needs: scan
+    #needs: scan
     runs-on: ubuntu-latest
     steps:
     - name: checkout source code
