@@ -79,6 +79,6 @@ jobs:
         subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
         body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
         to: martingerlyn@gmail.com,gerlyn7777@gmail.com
-        from: Luke Skywalker
+        from: gerlyn.m@cybersapient.io
         secure: true
 
