@@ -63,22 +63,22 @@ jobs:
 
     - name: Send mail
       if: failure()
-      uses: cinotify/github-action@main
-      with:
-        to: 'gerlyn.m@cybersapient.io'
-        subject: 'building main'
-        body: 'This is a notification from GitHub actions.'
-        #attachment: 'artifacts.zip'
-      # uses: dawidd6/action-send-mail@v3
+      # uses: cinotify/github-action@main
       # with:
+      #   to: 'gerlyn.m@cybersapient.io'
+      #   subject: 'building main'
+      #   body: 'This is a notification from GitHub actions.'
+        #attachment: 'artifacts.zip'
+      uses: dawidd6/action-send-mail@v3
+      with:
         #connection_url: email-smtp.us-east-1.amazonaws.com
-        # server_address: smtp.gmail.com
-        # server_port: 465
-        # username: ${{ secrets.EMAIL_USERNAME }}
-        # password: ${{ secrets.EMAIL_PASSWORD }}
-        # subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
-        # body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
-        # to: martingerlyn@gmail.com,gerlyn7777@gmail.com
-        # from: devops@cybersapient.io
-        # secure: true
+        server_address: email-smtp.us-east-1.amazonaws.com
+        server_port: 465
+        username: ${{ secrets.EMAIL_USERNAME }}
+        password: ${{ secrets.EMAIL_PASSWORD }}
+        subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
+        body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+        to: martingerlyn@gmail.com,gerlyn7777@gmail.com
+        from: devops@cybersapient.io
+        secure: true
 
