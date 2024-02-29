@@ -6,6 +6,6 @@ on:
 jobs:
   deploy:
     uses: gerlynm/githubActions/.github/workflows/copy_to_s3.yml@main
-    with:
-      environment: 'dev'
+    # with:
+    #   environment: 'dev'
     secrets: inherit
