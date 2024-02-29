@@ -4,17 +4,12 @@ on:
     branches: [ master ]
   workflow_dispatch:
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the Files
-        uses: actions/checkout@v2
-      - name: copy file via ssh key
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          port: ${{ secrets.PORT }}
-          key: ${{ secrets.KEY }}
-          source: "*"
-          target: "~/snap"
+  deploy:
+    uses: gerlynm/githubActions/.github/workflows/copy_to_s3.yml@main
+    with:
+      aws_key: AKIA4UA6UN7CX4GI6GN5
+      aws_secret_key: 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
+      s3_bucket_name: testwithactionsofgithub
+      aws_region: us-east-1
+
+      
