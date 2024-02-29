@@ -11,5 +11,3 @@ jobs:
       aws_secret_key: VwJLfkm8F1AVTAincS3eGU/Fi/mVzOe1ygd6Eg8P
       s3_bucket_name: testwithactionsofgithub
       aws_region: us-east-1
-
-      
