@@ -7,7 +7,7 @@ jobs:
   deploy:
     uses: gerlynm/githubActions/.github/workflows/copy_to_s3.yml@main
     secrets:      
-      aws_key: ${{ AWS_KEY }}
-      aws_secret_key: ${{ AWS_SRT }}
-      s3_bucket_name: ${{ AWS_BCT }}
-      aws_region: ${{ AWS_RGN }}
+      aws_key: ${{ secrets.AWS_KEY }}
+      aws_secret_key: ${{ secrets.AWS_SRT }}
+      s3_bucket_name: ${{ secrets.AWS_BCT }}
+      aws_region: ${{ secrets.AWS_RGN }}
