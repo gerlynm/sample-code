@@ -1,36 +1,22 @@
-name: Create Diamond Version Tags
-
+# example 1: on push to master
+name: Bump version
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  create-tag:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v3
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: '0'
 
-      #- name: Get version (optional)
-        # Uncomment this section if you want to use a specific versioning scheme
-        # Replace 'package.json' with the path to your versioning file (if applicable)
-        # This step retrieves the version from the file (adapt based on your file format)
-        # run: echo "VERSION=$(jq -r '.version' package.json)" >> $GITHUB_ENV
-
-      - name: Create tag
-        uses: actions/github-script@v5
-        with:
-          script: |
-            # Get the version (use the retrieved version or a fixed value)
-            version=${{ env.VERSION }}  # Use retrieved version if applicable
-            if [ -z "$version" ]; then
-              version="0.1.0"           # Default version if not retrieved
-            fi
-
-            # Create the tag name with "diamond_" prefix
-            tag_name="diamond_v$version"
-
-            # Create the Git tag
-            git tag -a "$tag_name" HEAD -m "Tag for version $version"
-
-            # Push the tag
-            git push origin "$tag_name"
+    - name: Bump version and push tag
+      uses: anothrNick/github-tag-action@1.64.0 # Don't use @master or @v1 unless you're happy to test the latest version
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }} # if you don't want to set write permissions use a PAT token
+        WITH_V: false
