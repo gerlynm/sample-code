@@ -1,11 +1,36 @@
-name: Build
+name: Create Diamond Version Tags
+
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:
+
 jobs:
-  deploy:
-    uses: gerlynm/githubActions/.github/workflows/copy_to_s3.yml@main
-    # with:
-    #   environment: 'dev'
-    secrets: inherit
+  create-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Get version (optional)
+        # Uncomment this section if you want to use a specific versioning scheme
+        # Replace 'package.json' with the path to your versioning file (if applicable)
+        # This step retrieves the version from the file (adapt based on your file format)
+        # run: echo "VERSION=$(jq -r '.version' package.json)" >> $GITHUB_ENV
+
+      - name: Create tag
+        uses: actions/github-script@v5
+        with:
+          script: |
+            # Get the version (use the retrieved version or a fixed value)
+            version=${{ env.VERSION }}  # Use retrieved version if applicable
+            if [ -z "$version" ]; then
+              version="0.1.0"           # Default version if not retrieved
+            fi
+
+            # Create the tag name with "diamond_" prefix
+            tag_name="diamond_v$version"
+
+            # Create the Git tag
+            git tag -a "$tag_name" HEAD -m "Tag for version $version"
+
+            # Push the tag
+            git push origin "$tag_name"
