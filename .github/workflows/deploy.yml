@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Get version (optional)
+      #- name: Get version (optional)
         # Uncomment this section if you want to use a specific versioning scheme
         # Replace 'package.json' with the path to your versioning file (if applicable)
         # This step retrieves the version from the file (adapt based on your file format)
