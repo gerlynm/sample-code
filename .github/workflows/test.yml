@@ -3,7 +3,7 @@ name: Deploy Application
 on:
   push:
     branches:
-      - main
+      - main22
 
 jobs:
   build:
