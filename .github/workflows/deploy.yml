@@ -3,7 +3,7 @@ name: Bump version
 on:
   push:
     branches:
-      - main1
+      - main
   workflow_dispatch:
 
 jobs:
@@ -19,12 +19,14 @@ jobs:
 
     
 
-    # - name: Bump version and push tag
-    #   uses: anothrNick/github-tag-action@1.64.0 # Don't use @master or @v1 unless you're happy to test the latest version
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.TOKEN }} # if you don't want to set write permissions use a PAT token
-    #     tag_name: 'diamond'
-    #     WITH_V: true
+    - name: Bump version and push tag
+      uses: anothrNick/github-tag-action@1.64.0 # Don't use @master or @v1 unless you're happy to test the latest version
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }} # if you don't want to set write permissions use a PAT token
+        tag_name: 'diamond'
+        DEFAULT_BUMP: patch
+        INITIAL_VERSION: 0.7.0
+        WITH_V: true
 
     # - name: Create Tag
     #   uses: actions/github-script@v6
