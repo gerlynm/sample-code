@@ -2,6 +2,8 @@
 name: Bump version
 on:
   push:
+    branches:
+      - prod
     tags:
       - '*'
   workflow_dispatch:
