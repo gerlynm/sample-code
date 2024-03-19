@@ -3,7 +3,7 @@ name: Bump version
 on:
   push:
     branches:
-      - main
+      - main1
   workflow_dispatch:
 
 jobs:
@@ -16,6 +16,9 @@ jobs:
       with:
         fetch-depth: '0'
 
+
+    
+
     # - name: Bump version and push tag
     #   uses: anothrNick/github-tag-action@1.64.0 # Don't use @master or @v1 unless you're happy to test the latest version
     #   env:
@@ -23,13 +26,13 @@ jobs:
     #     tag_name: 'diamond'
     #     WITH_V: true
 
-    - name: Create Tag
-      uses: actions/github-script@v6
-      with:
-        script: |
-          github.rest.git.createRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: 'refs/tags/v${{ steps.extract-version.outputs.VERSION }}',
-              sha: context.sha
-          })
+    # - name: Create Tag
+    #   uses: actions/github-script@v6
+    #   with:
+    #     script: |
+    #       github.rest.git.createRef({
+    #           owner: context.repo.owner,
+    #           repo: context.repo.repo,
+    #           ref: 'refs/tags/v${{ steps.extract-version.outputs.VERSION }}',
+    #           sha: context.sha
+    #       })
